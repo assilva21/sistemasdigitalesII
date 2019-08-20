@@ -1,0 +1,45 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity dado is
+Port(
+	Resetn, clock, enable: in std_logic;
+	num: out std_logic_vector(5 downto 0)
+	);
+end dado;
+Architecture sol of dado is
+
+type estado is (T1, T2, T3, T4, T5, T6);
+signal y:estado;
+
+begin
+	Process(resetn, clock)
+	begin
+	if Resetn = '1' then y <= T1;
+	elsif clock'event and clock = '1' then
+			if(enable='1') then 
+				case y is
+					when T1 => y<= T2;
+					when T2 => y<= T3;
+					when T3 => y<= T4;
+					when T4 => y<= T5;
+					when T5 => y<= T6;
+					when T6 => y<= T1;
+				end case;
+				else y<=y;
+			end if;
+		end if;
+	end Process;
+	process(resetn, clock)
+	begin 
+	case y is
+		when T1 => num <= "000001";
+		when T2 => num <= "000010";
+		when T3 => num <= "000011";
+		when T4 => num <= "000100";
+		when T5 => num <= "000101";
+		when T6 => num <= "000110";
+	end case;
+end process;
+
+end sol;

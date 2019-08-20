@@ -1,0 +1,857 @@
+Analysis & Synthesis report for ludo
+Thu Aug 15 14:46:34 2019
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. State Machine - |block1|dado:inst|y
+ 10. State Machine - |block1|controlador_ludo:inst29|y
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: contador0a1:inst12|lpm_counter:LPM_COUNTER_component
+ 15. Parameter Settings for User Entity Instance: comparador31:inst9|lpm_compare:LPM_COMPARE_component
+ 16. Parameter Settings for User Entity Instance: sumador2:inst7|lpm_add_sub:LPM_ADD_SUB_component
+ 17. Parameter Settings for User Entity Instance: comparador31:inst10|lpm_compare:LPM_COMPARE_component
+ 18. Parameter Settings for User Entity Instance: sumador2:inst8|lpm_add_sub:LPM_ADD_SUB_component
+ 19. Parameter Settings for User Entity Instance: counter:inst25|lpm_counter:LPM_COUNTER_component
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Aug 15 14:46:34 2019       ;
+; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                      ; ludo                                        ;
+; Top-level Entity Name              ; block1                                      ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 206                                         ;
+;     Total combinational functions  ; 184                                         ;
+;     Dedicated logic registers      ; 81                                          ;
+; Total registers                    ; 81                                          ;
+; Total pins                         ; 47                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE22F17C6       ;                    ;
+; Top-level entity name                                                      ; block1             ; ludo               ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                          ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                             ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                   ; Library ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------+---------+
+; mux_4_to_1.vhd                   ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd                                ;         ;
+; mux_2_to_1.vhd                   ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/mux_2_to_1.vhd                                ;         ;
+; Deco7seg.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/Deco7seg.vhd                                  ;         ;
+; CLOCK_DIV_50.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/CLOCK_DIV_50.vhd                              ;         ;
+; ANTIREBOTE.vhd                   ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/ANTIREBOTE.vhd                                ;         ;
+; Registro.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/Registro.vhd                                  ;         ;
+; dado.vhd                         ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/dado.vhd                                      ;         ;
+; block1.bdf                       ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Abel Silva/Desktop/LUDO/block1.bdf                                    ;         ;
+; contador0a1.vhd                  ; yes             ; User Wizard-Generated File         ; C:/Users/Abel Silva/Desktop/LUDO/contador0a1.vhd                               ;         ;
+; sumador2.vhd                     ; yes             ; User Wizard-Generated File         ; C:/Users/Abel Silva/Desktop/LUDO/sumador2.vhd                                  ;         ;
+; comparador31.vhd                 ; yes             ; User Wizard-Generated File         ; C:/Users/Abel Silva/Desktop/LUDO/comparador31.vhd                              ;         ;
+; decodificador_1a2.vhd            ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/decodificador_1a2.vhd                         ;         ;
+; controlador_ludo.vhd             ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/controlador_ludo.vhd                          ;         ;
+; decodificador_matriz1.vhd        ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz1.vhd                     ;         ;
+; decodificador_matriz2.vhd        ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz2.vhd                     ;         ;
+; decodificador_matriz3.vhd        ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz3.vhd                     ;         ;
+; decodificador_matriz4.vhd        ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz4.vhd                     ;         ;
+; counter.vhd                      ; yes             ; User Wizard-Generated File         ; C:/Users/Abel Silva/Desktop/LUDO/counter.vhd                                   ;         ;
+; decodificador_columna_1.vhd      ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_1.vhd                   ;         ;
+; decodificador_columna_2.vhd      ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_2.vhd                   ;         ;
+; decodificador_columna_3.vhd      ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_3.vhd                   ;         ;
+; decodificador_columna_4.vhd      ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_4.vhd                   ;         ;
+; mux_4_to_1_2.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd                              ;         ;
+; lpm_counter.tdf                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_counter.tdf         ;         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_constant.inc        ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_decode.inc          ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_add_sub.inc         ;         ;
+; cmpconst.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/cmpconst.inc            ;         ;
+; lpm_compare.inc                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_compare.inc         ;         ;
+; lpm_counter.inc                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_counter.inc         ;         ;
+; dffeea.inc                       ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/dffeea.inc              ;         ;
+; alt_counter_stratix.inc          ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/alt_counter_stratix.inc ;         ;
+; aglobal170.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/aglobal170.inc          ;         ;
+; db/cntr_udi.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Abel Silva/Desktop/LUDO/db/cntr_udi.tdf                               ;         ;
+; lpm_compare.tdf                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_compare.tdf         ;         ;
+; comptree.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/comptree.inc            ;         ;
+; altshift.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altshift.inc            ;         ;
+; db/cmpr_4pg.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Abel Silva/Desktop/LUDO/db/cmpr_4pg.tdf                               ;         ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;         ;
+; addcore.inc                      ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/addcore.inc             ;         ;
+; look_add.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/look_add.inc            ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/bypassff.inc            ;         ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;         ;
+; db/add_sub_soh.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/Abel Silva/Desktop/LUDO/db/add_sub_soh.tdf                            ;         ;
+; db/cntr_vdi.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Abel Silva/Desktop/LUDO/db/cntr_vdi.tdf                               ;         ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                   ;
++---------------------------------------------+---------------------------------+
+; Resource                                    ; Usage                           ;
++---------------------------------------------+---------------------------------+
+; Estimated Total logic elements              ; 206                             ;
+;                                             ;                                 ;
+; Total combinational functions               ; 184                             ;
+; Logic element usage by number of LUT inputs ;                                 ;
+;     -- 4 input functions                    ; 91                              ;
+;     -- 3 input functions                    ; 60                              ;
+;     -- <=2 input functions                  ; 33                              ;
+;                                             ;                                 ;
+; Logic elements by mode                      ;                                 ;
+;     -- normal mode                          ; 168                             ;
+;     -- arithmetic mode                      ; 16                              ;
+;                                             ;                                 ;
+; Total registers                             ; 81                              ;
+;     -- Dedicated logic registers            ; 81                              ;
+;     -- I/O registers                        ; 0                               ;
+;                                             ;                                 ;
+; I/O pins                                    ; 47                              ;
+;                                             ;                                 ;
+; Embedded Multiplier 9-bit elements          ; 0                               ;
+;                                             ;                                 ;
+; Maximum fan-out node                        ; CLOCK_DIV_50:inst15|CLOCK_10KHz ;
+; Maximum fan-out                             ; 49                              ;
+; Total fan-out                               ; 911                             ;
+; Average fan-out                             ; 2.54                            ;
++---------------------------------------------+---------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                  ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                  ; Entity Name             ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------+-------------------------+--------------+
+; |block1                                   ; 184 (0)             ; 81 (0)                    ; 0           ; 0            ; 0       ; 0         ; 47   ; 0            ; |block1                                                                              ; block1                  ; work         ;
+;    |ANTIREBOTE:inst16|                    ; 2 (2)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|ANTIREBOTE:inst16                                                            ; ANTIREBOTE              ; work         ;
+;    |ANTIREBOTE:inst18|                    ; 2 (2)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|ANTIREBOTE:inst18                                                            ; ANTIREBOTE              ; work         ;
+;    |ANTIREBOTE:inst19|                    ; 2 (2)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|ANTIREBOTE:inst19                                                            ; ANTIREBOTE              ; work         ;
+;    |CLOCK_DIV_50:inst15|                  ; 25 (25)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|CLOCK_DIV_50:inst15                                                          ; CLOCK_DIV_50            ; work         ;
+;    |Deco7seg:inst22|                      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|Deco7seg:inst22                                                              ; Deco7seg                ; work         ;
+;    |Registro:inst14|                      ; 0 (0)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|Registro:inst14                                                              ; Registro                ; work         ;
+;    |Registro:inst4|                       ; 0 (0)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|Registro:inst4                                                               ; Registro                ; work         ;
+;    |Registro:inst5|                       ; 6 (6)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|Registro:inst5                                                               ; Registro                ; work         ;
+;    |Registro:inst6|                       ; 6 (6)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|Registro:inst6                                                               ; Registro                ; work         ;
+;    |contador0a1:inst12|                   ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|contador0a1:inst12                                                           ; contador0a1             ; work         ;
+;       |lpm_counter:LPM_COUNTER_component| ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|contador0a1:inst12|lpm_counter:LPM_COUNTER_component                         ; lpm_counter             ; work         ;
+;          |cntr_udi:auto_generated|        ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|contador0a1:inst12|lpm_counter:LPM_COUNTER_component|cntr_udi:auto_generated ; cntr_udi                ; work         ;
+;    |controlador_ludo:inst29|              ; 23 (23)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|controlador_ludo:inst29                                                      ; controlador_ludo        ; work         ;
+;    |counter:inst25|                       ; 2 (0)               ; 2 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|counter:inst25                                                               ; counter                 ; work         ;
+;       |lpm_counter:LPM_COUNTER_component| ; 2 (0)               ; 2 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|counter:inst25|lpm_counter:LPM_COUNTER_component                             ; lpm_counter             ; work         ;
+;          |cntr_vdi:auto_generated|        ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|counter:inst25|lpm_counter:LPM_COUNTER_component|cntr_vdi:auto_generated     ; cntr_vdi                ; work         ;
+;    |dado:inst|                            ; 5 (5)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|dado:inst                                                                    ; dado                    ; work         ;
+;    |decodificador_columna_1:inst35|       ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_columna_1:inst35                                               ; decodificador_columna_1 ; work         ;
+;    |decodificador_columna_1:inst41|       ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_columna_1:inst41                                               ; decodificador_columna_1 ; work         ;
+;    |decodificador_columna_2:inst36|       ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_columna_2:inst36                                               ; decodificador_columna_2 ; work         ;
+;    |decodificador_columna_2:inst42|       ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_columna_2:inst42                                               ; decodificador_columna_2 ; work         ;
+;    |decodificador_columna_3:inst37|       ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_columna_3:inst37                                               ; decodificador_columna_3 ; work         ;
+;    |decodificador_columna_3:inst43|       ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_columna_3:inst43                                               ; decodificador_columna_3 ; work         ;
+;    |decodificador_columna_4:inst38|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_columna_4:inst38                                               ; decodificador_columna_4 ; work         ;
+;    |decodificador_columna_4:inst44|       ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_columna_4:inst44                                               ; decodificador_columna_4 ; work         ;
+;    |decodificador_matriz1:inst26|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_matriz1:inst26                                                 ; decodificador_matriz1   ; work         ;
+;    |decodificador_matriz1:inst2|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_matriz1:inst2                                                  ; decodificador_matriz1   ; work         ;
+;    |decodificador_matriz2:inst17|         ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_matriz2:inst17                                                 ; decodificador_matriz2   ; work         ;
+;    |decodificador_matriz3:inst20|         ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_matriz3:inst20                                                 ; decodificador_matriz3   ; work         ;
+;    |decodificador_matriz3:inst30|         ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|decodificador_matriz3:inst30                                                 ; decodificador_matriz3   ; work         ;
+;    |mux_2_to_1:inst1|                     ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|mux_2_to_1:inst1                                                             ; mux_2_to_1              ; work         ;
+;    |mux_4_to_1:inst23|                    ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|mux_4_to_1:inst23                                                            ; mux_4_to_1              ; work         ;
+;    |mux_4_to_1:inst32|                    ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|mux_4_to_1:inst32                                                            ; mux_4_to_1              ; work         ;
+;    |mux_4_to_1_2:inst39|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|mux_4_to_1_2:inst39                                                          ; mux_4_to_1_2            ; work         ;
+;    |mux_4_to_1_2:inst40|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |block1|mux_4_to_1_2:inst40                                                          ; mux_4_to_1_2            ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------+-------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                          ;
++--------+--------------+---------+--------------+--------------+-----------------------------+------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance             ; IP Include File  ;
++--------+--------------+---------+--------------+--------------+-----------------------------+------------------+
+; Altera ; LPM_ADD_SUB  ; 17.0    ; N/A          ; N/A          ; |block1|sumador2:inst7      ; sumador2.vhd     ;
+; Altera ; LPM_ADD_SUB  ; 17.0    ; N/A          ; N/A          ; |block1|sumador2:inst8      ; sumador2.vhd     ;
+; Altera ; LPM_COMPARE  ; 17.0    ; N/A          ; N/A          ; |block1|comparador31:inst9  ; comparador31.vhd ;
+; Altera ; LPM_COMPARE  ; 17.0    ; N/A          ; N/A          ; |block1|comparador31:inst10 ; comparador31.vhd ;
+; Altera ; LPM_COUNTER  ; 17.0    ; N/A          ; N/A          ; |block1|contador0a1:inst12  ; contador0a1.vhd  ;
+; Altera ; LPM_COUNTER  ; 17.0    ; N/A          ; N/A          ; |block1|counter:inst25      ; counter.vhd      ;
++--------+--------------+---------+--------------+--------------+-----------------------------+------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------+
+; State Machine - |block1|dado:inst|y            ;
++------+------+------+------+------+------+------+
+; Name ; y.T6 ; y.T5 ; y.T4 ; y.T3 ; y.T2 ; y.T1 ;
++------+------+------+------+------+------+------+
+; y.T1 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ;
+; y.T2 ; 0    ; 0    ; 0    ; 0    ; 1    ; 1    ;
+; y.T3 ; 0    ; 0    ; 0    ; 1    ; 0    ; 1    ;
+; y.T4 ; 0    ; 0    ; 1    ; 0    ; 0    ; 1    ;
+; y.T5 ; 0    ; 1    ; 0    ; 0    ; 0    ; 1    ;
+; y.T6 ; 1    ; 0    ; 0    ; 0    ; 0    ; 1    ;
++------+------+------+------+------+------+------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------+
+; State Machine - |block1|controlador_ludo:inst29|y                                                    ;
++-------+-------+-------+-------+-------+------+------+------+------+------+------+------+------+------+
+; Name  ; y.T13 ; y.T12 ; y.T11 ; y.T10 ; y.T9 ; y.T8 ; y.T7 ; y.T6 ; y.T5 ; y.T4 ; y.T3 ; y.T2 ; y.T1 ;
++-------+-------+-------+-------+-------+------+------+------+------+------+------+------+------+------+
+; y.T1  ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ;
+; y.T2  ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 1    ;
+; y.T3  ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 1    ;
+; y.T4  ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 1    ;
+; y.T5  ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 1    ;
+; y.T6  ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; y.T7  ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; y.T8  ; 0     ; 0     ; 0     ; 0     ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; y.T9  ; 0     ; 0     ; 0     ; 0     ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; y.T10 ; 0     ; 0     ; 0     ; 1     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; y.T11 ; 0     ; 0     ; 1     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; y.T12 ; 0     ; 1     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; y.T13 ; 1     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
++-------+-------+-------+-------+-------+------+------+------+------+------+------+------+------+------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; Registro:inst4|temp[3..5]             ; Stuck at GND due to stuck port data_in ;
+; Registro:inst14|temp[3..5]            ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 6 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 81    ;
+; Number of registers using Synchronous Clear  ; 6     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 37    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 19    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |block1|mux_4_to_1_2:inst40|Mux2 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |block1|mux_4_to_1_2:inst39|Mux1 ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |block1|mux_4_to_1:inst32|Mux6   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: contador0a1:inst12|lpm_counter:LPM_COUNTER_component ;
++------------------------+--------------+-----------------------------------------------------------+
+; Parameter Name         ; Value        ; Type                                                      ;
++------------------------+--------------+-----------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                              ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                            ;
+; LPM_WIDTH              ; 1            ; Signed Integer                                            ;
+; LPM_DIRECTION          ; UP           ; Untyped                                                   ;
+; LPM_MODULUS            ; 0            ; Untyped                                                   ;
+; LPM_AVALUE             ; UNUSED       ; Untyped                                                   ;
+; LPM_SVALUE             ; UNUSED       ; Untyped                                                   ;
+; LPM_PORT_UPDOWN        ; PORT_UNUSED  ; Untyped                                                   ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                                   ;
+; CARRY_CHAIN            ; MANUAL       ; Untyped                                                   ;
+; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                                        ;
+; NOT_GATE_PUSH_BACK     ; ON           ; NOT_GATE_PUSH_BACK                                        ;
+; CARRY_CNT_EN           ; SMART        ; Untyped                                                   ;
+; LABWIDE_SCLR           ; ON           ; Untyped                                                   ;
+; USE_NEW_VERSION        ; TRUE         ; Untyped                                                   ;
+; CBXI_PARAMETER         ; cntr_udi     ; Untyped                                                   ;
++------------------------+--------------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: comparador31:inst9|lpm_compare:LPM_COMPARE_component ;
++------------------------+--------------+-----------------------------------------------------------+
+; Parameter Name         ; Value        ; Type                                                      ;
++------------------------+--------------+-----------------------------------------------------------+
+; lpm_width              ; 6            ; Signed Integer                                            ;
+; LPM_REPRESENTATION     ; UNSIGNED     ; Untyped                                                   ;
+; LPM_PIPELINE           ; 0            ; Untyped                                                   ;
+; CHAIN_SIZE             ; 8            ; Untyped                                                   ;
+; ONE_INPUT_IS_CONSTANT  ; NO           ; Untyped                                                   ;
+; CARRY_CHAIN            ; MANUAL       ; Untyped                                                   ;
+; CASCADE_CHAIN          ; MANUAL       ; Untyped                                                   ;
+; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                                        ;
+; CASCADE_CHAIN_LENGTH   ; 2            ; CASCADE_CHAIN_LENGTH                                      ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                                   ;
+; CBXI_PARAMETER         ; cmpr_4pg     ; Untyped                                                   ;
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                              ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                            ;
++------------------------+--------------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sumador2:inst7|lpm_add_sub:LPM_ADD_SUB_component ;
++------------------------+--------------+-------------------------------------------------------+
+; Parameter Name         ; Value        ; Type                                                  ;
++------------------------+--------------+-------------------------------------------------------+
+; LPM_WIDTH              ; 6            ; Signed Integer                                        ;
+; LPM_REPRESENTATION     ; UNSIGNED     ; Untyped                                               ;
+; LPM_DIRECTION          ; ADD          ; Untyped                                               ;
+; ONE_INPUT_IS_CONSTANT  ; NO           ; Untyped                                               ;
+; LPM_PIPELINE           ; 0            ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5            ; Untyped                                               ;
+; REGISTERED_AT_END      ; 0            ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5            ; Untyped                                               ;
+; USE_CS_BUFFERS         ; 1            ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL       ; Untyped                                               ;
+; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                                    ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                               ;
+; USE_WYS                ; OFF          ; Untyped                                               ;
+; STYLE                  ; FAST         ; Untyped                                               ;
+; CBXI_PARAMETER         ; add_sub_soh  ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                        ;
++------------------------+--------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: comparador31:inst10|lpm_compare:LPM_COMPARE_component ;
++------------------------+--------------+------------------------------------------------------------+
+; Parameter Name         ; Value        ; Type                                                       ;
++------------------------+--------------+------------------------------------------------------------+
+; lpm_width              ; 6            ; Signed Integer                                             ;
+; LPM_REPRESENTATION     ; UNSIGNED     ; Untyped                                                    ;
+; LPM_PIPELINE           ; 0            ; Untyped                                                    ;
+; CHAIN_SIZE             ; 8            ; Untyped                                                    ;
+; ONE_INPUT_IS_CONSTANT  ; NO           ; Untyped                                                    ;
+; CARRY_CHAIN            ; MANUAL       ; Untyped                                                    ;
+; CASCADE_CHAIN          ; MANUAL       ; Untyped                                                    ;
+; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                                         ;
+; CASCADE_CHAIN_LENGTH   ; 2            ; CASCADE_CHAIN_LENGTH                                       ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                                    ;
+; CBXI_PARAMETER         ; cmpr_4pg     ; Untyped                                                    ;
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                               ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                             ;
++------------------------+--------------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sumador2:inst8|lpm_add_sub:LPM_ADD_SUB_component ;
++------------------------+--------------+-------------------------------------------------------+
+; Parameter Name         ; Value        ; Type                                                  ;
++------------------------+--------------+-------------------------------------------------------+
+; LPM_WIDTH              ; 6            ; Signed Integer                                        ;
+; LPM_REPRESENTATION     ; UNSIGNED     ; Untyped                                               ;
+; LPM_DIRECTION          ; ADD          ; Untyped                                               ;
+; ONE_INPUT_IS_CONSTANT  ; NO           ; Untyped                                               ;
+; LPM_PIPELINE           ; 0            ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5            ; Untyped                                               ;
+; REGISTERED_AT_END      ; 0            ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5            ; Untyped                                               ;
+; USE_CS_BUFFERS         ; 1            ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL       ; Untyped                                               ;
+; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                                    ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                               ;
+; USE_WYS                ; OFF          ; Untyped                                               ;
+; STYLE                  ; FAST         ; Untyped                                               ;
+; CBXI_PARAMETER         ; add_sub_soh  ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                        ;
++------------------------+--------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: counter:inst25|lpm_counter:LPM_COUNTER_component ;
++------------------------+--------------+-------------------------------------------------------+
+; Parameter Name         ; Value        ; Type                                                  ;
++------------------------+--------------+-------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                        ;
+; LPM_WIDTH              ; 2            ; Signed Integer                                        ;
+; LPM_DIRECTION          ; UP           ; Untyped                                               ;
+; LPM_MODULUS            ; 0            ; Untyped                                               ;
+; LPM_AVALUE             ; UNUSED       ; Untyped                                               ;
+; LPM_SVALUE             ; UNUSED       ; Untyped                                               ;
+; LPM_PORT_UPDOWN        ; PORT_UNUSED  ; Untyped                                               ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL       ; Untyped                                               ;
+; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                                    ;
+; NOT_GATE_PUSH_BACK     ; ON           ; NOT_GATE_PUSH_BACK                                    ;
+; CARRY_CNT_EN           ; SMART        ; Untyped                                               ;
+; LABWIDE_SCLR           ; ON           ; Untyped                                               ;
+; USE_NEW_VERSION        ; TRUE         ; Untyped                                               ;
+; CBXI_PARAMETER         ; cntr_vdi     ; Untyped                                               ;
++------------------------+--------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 47                          ;
+; cycloneiii_ff         ; 81                          ;
+;     CLR               ; 19                          ;
+;     ENA               ; 1                           ;
+;     ENA CLR           ; 18                          ;
+;     SCLR              ; 6                           ;
+;     plain             ; 37                          ;
+; cycloneiii_lcell_comb ; 190                         ;
+;     arith             ; 16                          ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 6                           ;
+;     normal            ; 174                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 13                          ;
+;         3 data inputs ; 54                          ;
+;         4 data inputs ; 91                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.35                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Thu Aug 15 14:46:21 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ludo -c ludo
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file mux_4_to_1.vhd
+    Info (12022): Found design unit 1: mux_4_to_1-arq File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 15
+    Info (12023): Found entity 1: mux_4_to_1 File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file decodificador_de_3a8_colum.vhd
+    Info (12022): Found design unit 1: decodificador_de_3a8_colum-Behavior File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_de_3a8_colum.vhd Line: 10
+    Info (12023): Found entity 1: decodificador_de_3a8_colum File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_de_3a8_colum.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux_2_to_1.vhd
+    Info (12022): Found design unit 1: mux_2_to_1-arq File: C:/Users/Abel Silva/Desktop/LUDO/mux_2_to_1.vhd Line: 11
+    Info (12023): Found entity 1: mux_2_to_1 File: C:/Users/Abel Silva/Desktop/LUDO/mux_2_to_1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file deco7seg.vhd
+    Info (12022): Found design unit 1: Deco7seg-arq File: C:/Users/Abel Silva/Desktop/LUDO/Deco7seg.vhd Line: 11
+    Info (12023): Found entity 1: Deco7seg File: C:/Users/Abel Silva/Desktop/LUDO/Deco7seg.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file clock_div_50.vhd
+    Info (12022): Found design unit 1: CLOCK_DIV_50-a File: C:/Users/Abel Silva/Desktop/LUDO/CLOCK_DIV_50.vhd Line: 18
+    Info (12023): Found entity 1: CLOCK_DIV_50 File: C:/Users/Abel Silva/Desktop/LUDO/CLOCK_DIV_50.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file antirebote.vhd
+    Info (12022): Found design unit 1: ANTIREBOTE-a File: C:/Users/Abel Silva/Desktop/LUDO/ANTIREBOTE.vhd Line: 12
+    Info (12023): Found entity 1: ANTIREBOTE File: C:/Users/Abel Silva/Desktop/LUDO/ANTIREBOTE.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file registro_0.vhd
+    Info (12022): Found design unit 1: Registro_0-operacion File: C:/Users/Abel Silva/Desktop/LUDO/Registro_0.vhd Line: 11
+    Info (12023): Found entity 1: Registro_0 File: C:/Users/Abel Silva/Desktop/LUDO/Registro_0.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file registro.vhd
+    Info (12022): Found design unit 1: Registro-operacion File: C:/Users/Abel Silva/Desktop/LUDO/Registro.vhd Line: 11
+    Info (12023): Found entity 1: Registro File: C:/Users/Abel Silva/Desktop/LUDO/Registro.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file dado.vhd
+    Info (12022): Found design unit 1: dado-sol File: C:/Users/Abel Silva/Desktop/LUDO/dado.vhd Line: 10
+    Info (12023): Found entity 1: dado File: C:/Users/Abel Silva/Desktop/LUDO/dado.vhd Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file block1.bdf
+    Info (12023): Found entity 1: block1
+Info (12021): Found 2 design units, including 1 entities, in source file contador0a1.vhd
+    Info (12022): Found design unit 1: contador0a1-SYN File: C:/Users/Abel Silva/Desktop/LUDO/contador0a1.vhd Line: 53
+    Info (12023): Found entity 1: contador0a1 File: C:/Users/Abel Silva/Desktop/LUDO/contador0a1.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file sumador.vhd
+    Info (12022): Found design unit 1: sumador-SYN File: C:/Users/Abel Silva/Desktop/LUDO/sumador.vhd Line: 53
+    Info (12023): Found entity 1: sumador File: C:/Users/Abel Silva/Desktop/LUDO/sumador.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file comparador_igual_31.vhd
+    Info (12022): Found design unit 1: comparador_igual_31-arq File: C:/Users/Abel Silva/Desktop/LUDO/comparador_igual_31.vhd Line: 11
+    Info (12023): Found entity 1: comparador_igual_31 File: C:/Users/Abel Silva/Desktop/LUDO/comparador_igual_31.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file sumador2.vhd
+    Info (12022): Found design unit 1: sumador2-SYN File: C:/Users/Abel Silva/Desktop/LUDO/sumador2.vhd Line: 53
+    Info (12023): Found entity 1: sumador2 File: C:/Users/Abel Silva/Desktop/LUDO/sumador2.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file comparador31.vhd
+    Info (12022): Found design unit 1: comparador31-SYN File: C:/Users/Abel Silva/Desktop/LUDO/comparador31.vhd Line: 53
+    Info (12023): Found entity 1: comparador31 File: C:/Users/Abel Silva/Desktop/LUDO/comparador31.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file decodificador_1a2.vhd
+    Info (12022): Found design unit 1: decodificador_1a2-Behavior File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_1a2.vhd Line: 10
+    Info (12023): Found entity 1: decodificador_1a2 File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_1a2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file controlador_ludo.vhd
+    Info (12022): Found design unit 1: controlador_ludo-sol File: C:/Users/Abel Silva/Desktop/LUDO/controlador_ludo.vhd Line: 11
+    Info (12023): Found entity 1: controlador_ludo File: C:/Users/Abel Silva/Desktop/LUDO/controlador_ludo.vhd Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file decodificador_matriz1.vhd
+    Info (12022): Found design unit 1: decodificador_matriz1-Behavior File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz1.vhd Line: 10
+    Info (12023): Found entity 1: decodificador_matriz1 File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file decodificador_columna_verde.vhd
+    Info (12022): Found design unit 1: decodificador_columna_verde-Behavior File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_verde.vhd Line: 10
+    Info (12023): Found entity 1: decodificador_columna_verde File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_verde.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file decodificador_matriz2.vhd
+    Info (12022): Found design unit 1: decodificador_matriz2-Behavior File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz2.vhd Line: 10
+    Info (12023): Found entity 1: decodificador_matriz2 File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file decodificador_matriz3.vhd
+    Info (12022): Found design unit 1: decodificador_matriz3-Behavior File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz3.vhd Line: 10
+    Info (12023): Found entity 1: decodificador_matriz3 File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz3.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file decodificador_matriz4.vhd
+    Info (12022): Found design unit 1: decodificador_matriz4-Behavior File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz4.vhd Line: 10
+    Info (12023): Found entity 1: decodificador_matriz4 File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_matriz4.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file counter.vhd
+    Info (12022): Found design unit 1: counter-SYN File: C:/Users/Abel Silva/Desktop/LUDO/counter.vhd Line: 53
+    Info (12023): Found entity 1: counter File: C:/Users/Abel Silva/Desktop/LUDO/counter.vhd Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file block2.bdf
+    Info (12023): Found entity 1: block2
+Info (12021): Found 2 design units, including 1 entities, in source file decodificador_columna_1.vhd
+    Info (12022): Found design unit 1: decodificador_columna_1-Behavior File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_1.vhd Line: 10
+    Info (12023): Found entity 1: decodificador_columna_1 File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file decodificador_columna_2.vhd
+    Info (12022): Found design unit 1: decodificador_columna_2-Behavior File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_2.vhd Line: 10
+    Info (12023): Found entity 1: decodificador_columna_2 File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file decodificador_columna_3.vhd
+    Info (12022): Found design unit 1: decodificador_columna_3-Behavior File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_3.vhd Line: 10
+    Info (12023): Found entity 1: decodificador_columna_3 File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_3.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file decodificador_columna_4.vhd
+    Info (12022): Found design unit 1: decodificador_columna_4-Behavior File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_4.vhd Line: 10
+    Info (12023): Found entity 1: decodificador_columna_4 File: C:/Users/Abel Silva/Desktop/LUDO/decodificador_columna_4.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux_4_to_1_2.vhd
+    Info (12022): Found design unit 1: mux_4_to_1_2-arq File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 15
+    Info (12023): Found entity 1: mux_4_to_1_2 File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 5
+Info (12127): Elaborating entity "block1" for the top level hierarchy
+Warning (275080): Converted elements in bus name "sal" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal[7..0]" to "sal7..0"
+Warning (275080): Converted elements in bus name "sal1" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal1[7..0]" to "sal17..0"
+Warning (275080): Converted elements in bus name "sal2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal2[7..0]" to "sal27..0"
+Warning (275080): Converted elements in bus name "sal3" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal3[7..0]" to "sal37..0"
+Warning (275080): Converted elements in bus name "sal4" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal4[7..0]" to "sal47..0"
+Warning (275080): Converted elements in bus name "sal" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal[7..0]" to "sal7..0"
+Warning (275080): Converted elements in bus name "sal1" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal1[7..0]" to "sal17..0"
+Warning (275080): Converted elements in bus name "sal2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal2[7..0]" to "sal27..0"
+Warning (275080): Converted elements in bus name "sal3" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal3[7..0]" to "sal37..0"
+Warning (275080): Converted elements in bus name "sal4" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal4[7..0]" to "sal47..0"
+Warning (275080): Converted elements in bus name "sal" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal[3..0]" to "sal3..0"
+Warning (275080): Converted elements in bus name "sal1" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal1[3..0]" to "sal13..0"
+Warning (275080): Converted elements in bus name "sal2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal2[3..0]" to "sal23..0"
+Warning (275080): Converted elements in bus name "sal3" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal3[3..0]" to "sal33..0"
+Warning (275080): Converted elements in bus name "sal" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal[3..0]" to "sal3..0"
+Warning (275080): Converted elements in bus name "sal1" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal1[3..0]" to "sal13..0"
+Warning (275080): Converted elements in bus name "sal2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal2[3..0]" to "sal23..0"
+Warning (275080): Converted elements in bus name "sal3" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "sal3[3..0]" to "sal33..0"
+Warning (275085): Found inconsistent dimensions for element "jugador1"
+Warning (275085): Found inconsistent dimensions for element "jugador2"
+Warning (275080): Converted elements in bus name "jugador1" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "jugador1[5..0]" to "jugador15..0"
+    Warning (275081): Converted element name(s) from "jugador1[5..0]" to "jugador15..0"
+Warning (275080): Converted elements in bus name "jugador2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "jugador2[5..0]" to "jugador25..0"
+    Warning (275081): Converted element name(s) from "jugador2[5..0]" to "jugador25..0"
+Info (12128): Elaborating entity "controlador_ludo" for hierarchy "controlador_ludo:inst29"
+Warning (10492): VHDL Process Statement warning at controlador_ludo.vhd(49): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Abel Silva/Desktop/LUDO/controlador_ludo.vhd Line: 49
+Info (12128): Elaborating entity "CLOCK_DIV_50" for hierarchy "CLOCK_DIV_50:inst15"
+Info (12128): Elaborating entity "ANTIREBOTE" for hierarchy "ANTIREBOTE:inst16"
+Info (12128): Elaborating entity "contador0a1" for hierarchy "contador0a1:inst12"
+Info (12128): Elaborating entity "lpm_counter" for hierarchy "contador0a1:inst12|lpm_counter:LPM_COUNTER_component" File: C:/Users/Abel Silva/Desktop/LUDO/contador0a1.vhd Line: 76
+Info (12130): Elaborated megafunction instantiation "contador0a1:inst12|lpm_counter:LPM_COUNTER_component" File: C:/Users/Abel Silva/Desktop/LUDO/contador0a1.vhd Line: 76
+Info (12133): Instantiated megafunction "contador0a1:inst12|lpm_counter:LPM_COUNTER_component" with the following parameter: File: C:/Users/Abel Silva/Desktop/LUDO/contador0a1.vhd Line: 76
+    Info (12134): Parameter "lpm_direction" = "UP"
+    Info (12134): Parameter "lpm_port_updown" = "PORT_UNUSED"
+    Info (12134): Parameter "lpm_type" = "LPM_COUNTER"
+    Info (12134): Parameter "lpm_width" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_udi.tdf
+    Info (12023): Found entity 1: cntr_udi File: C:/Users/Abel Silva/Desktop/LUDO/db/cntr_udi.tdf Line: 26
+Info (12128): Elaborating entity "cntr_udi" for hierarchy "contador0a1:inst12|lpm_counter:LPM_COUNTER_component|cntr_udi:auto_generated" File: c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_counter.tdf Line: 259
+Info (12128): Elaborating entity "comparador31" for hierarchy "comparador31:inst9"
+Info (12128): Elaborating entity "lpm_compare" for hierarchy "comparador31:inst9|lpm_compare:LPM_COMPARE_component" File: C:/Users/Abel Silva/Desktop/LUDO/comparador31.vhd Line: 75
+Info (12130): Elaborated megafunction instantiation "comparador31:inst9|lpm_compare:LPM_COMPARE_component" File: C:/Users/Abel Silva/Desktop/LUDO/comparador31.vhd Line: 75
+Info (12133): Instantiated megafunction "comparador31:inst9|lpm_compare:LPM_COMPARE_component" with the following parameter: File: C:/Users/Abel Silva/Desktop/LUDO/comparador31.vhd Line: 75
+    Info (12134): Parameter "lpm_representation" = "UNSIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_COMPARE"
+    Info (12134): Parameter "lpm_width" = "6"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_4pg.tdf
+    Info (12023): Found entity 1: cmpr_4pg File: C:/Users/Abel Silva/Desktop/LUDO/db/cmpr_4pg.tdf Line: 23
+Info (12128): Elaborating entity "cmpr_4pg" for hierarchy "comparador31:inst9|lpm_compare:LPM_COMPARE_component|cmpr_4pg:auto_generated" File: c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_compare.tdf Line: 281
+Info (12128): Elaborating entity "Registro" for hierarchy "Registro:inst5"
+Info (12128): Elaborating entity "sumador2" for hierarchy "sumador2:inst7"
+Info (12128): Elaborating entity "lpm_add_sub" for hierarchy "sumador2:inst7|lpm_add_sub:LPM_ADD_SUB_component" File: C:/Users/Abel Silva/Desktop/LUDO/sumador2.vhd Line: 77
+Info (12130): Elaborated megafunction instantiation "sumador2:inst7|lpm_add_sub:LPM_ADD_SUB_component" File: C:/Users/Abel Silva/Desktop/LUDO/sumador2.vhd Line: 77
+Info (12133): Instantiated megafunction "sumador2:inst7|lpm_add_sub:LPM_ADD_SUB_component" with the following parameter: File: C:/Users/Abel Silva/Desktop/LUDO/sumador2.vhd Line: 77
+    Info (12134): Parameter "lpm_direction" = "ADD"
+    Info (12134): Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=NO,CIN_USED=NO"
+    Info (12134): Parameter "lpm_representation" = "UNSIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_ADD_SUB"
+    Info (12134): Parameter "lpm_width" = "6"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_soh.tdf
+    Info (12023): Found entity 1: add_sub_soh File: C:/Users/Abel Silva/Desktop/LUDO/db/add_sub_soh.tdf Line: 23
+Info (12128): Elaborating entity "add_sub_soh" for hierarchy "sumador2:inst7|lpm_add_sub:LPM_ADD_SUB_component|add_sub_soh:auto_generated" File: c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_add_sub.tdf Line: 119
+Info (12128): Elaborating entity "dado" for hierarchy "dado:inst"
+Warning (10492): VHDL Process Statement warning at dado.vhd(35): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Abel Silva/Desktop/LUDO/dado.vhd Line: 35
+Info (12128): Elaborating entity "decodificador_1a2" for hierarchy "decodificador_1a2:inst3"
+Info (12128): Elaborating entity "mux_4_to_1_2" for hierarchy "mux_4_to_1_2:inst40"
+Warning (10492): VHDL Process Statement warning at mux_4_to_1_2.vhd(21): signal "sal1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at mux_4_to_1_2.vhd(22): signal "sal2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at mux_4_to_1_2.vhd(23): signal "sal3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at mux_4_to_1_2.vhd(24): signal "sal4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 24
+Warning (10631): VHDL Process Statement warning at mux_4_to_1_2.vhd(17): inferring latch(es) for signal or variable "sal", which holds its previous value in one or more paths through the process File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Info (10041): Inferred latch for "sal[0]" at mux_4_to_1_2.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Info (10041): Inferred latch for "sal[1]" at mux_4_to_1_2.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Info (10041): Inferred latch for "sal[2]" at mux_4_to_1_2.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Info (10041): Inferred latch for "sal[3]" at mux_4_to_1_2.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Info (12128): Elaborating entity "decodificador_columna_4" for hierarchy "decodificador_columna_4:inst44"
+Info (12128): Elaborating entity "decodificador_columna_3" for hierarchy "decodificador_columna_3:inst43"
+Info (12128): Elaborating entity "decodificador_columna_2" for hierarchy "decodificador_columna_2:inst42"
+Info (12128): Elaborating entity "decodificador_columna_1" for hierarchy "decodificador_columna_1:inst41"
+Info (12128): Elaborating entity "counter" for hierarchy "counter:inst25"
+Info (12128): Elaborating entity "lpm_counter" for hierarchy "counter:inst25|lpm_counter:LPM_COUNTER_component" File: C:/Users/Abel Silva/Desktop/LUDO/counter.vhd Line: 76
+Info (12130): Elaborated megafunction instantiation "counter:inst25|lpm_counter:LPM_COUNTER_component" File: C:/Users/Abel Silva/Desktop/LUDO/counter.vhd Line: 76
+Info (12133): Instantiated megafunction "counter:inst25|lpm_counter:LPM_COUNTER_component" with the following parameter: File: C:/Users/Abel Silva/Desktop/LUDO/counter.vhd Line: 76
+    Info (12134): Parameter "lpm_direction" = "UP"
+    Info (12134): Parameter "lpm_port_updown" = "PORT_UNUSED"
+    Info (12134): Parameter "lpm_type" = "LPM_COUNTER"
+    Info (12134): Parameter "lpm_width" = "2"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_vdi.tdf
+    Info (12023): Found entity 1: cntr_vdi File: C:/Users/Abel Silva/Desktop/LUDO/db/cntr_vdi.tdf Line: 26
+Info (12128): Elaborating entity "cntr_vdi" for hierarchy "counter:inst25|lpm_counter:LPM_COUNTER_component|cntr_vdi:auto_generated" File: c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_counter.tdf Line: 259
+Info (12128): Elaborating entity "mux_4_to_1" for hierarchy "mux_4_to_1:inst32"
+Warning (10492): VHDL Process Statement warning at mux_4_to_1.vhd(21): signal "sal1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at mux_4_to_1.vhd(22): signal "sal2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at mux_4_to_1.vhd(23): signal "sal3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at mux_4_to_1.vhd(24): signal "sal4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 24
+Warning (10631): VHDL Process Statement warning at mux_4_to_1.vhd(17): inferring latch(es) for signal or variable "sal", which holds its previous value in one or more paths through the process File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Info (10041): Inferred latch for "sal[0]" at mux_4_to_1.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Info (10041): Inferred latch for "sal[1]" at mux_4_to_1.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Info (10041): Inferred latch for "sal[2]" at mux_4_to_1.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Info (10041): Inferred latch for "sal[3]" at mux_4_to_1.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Info (10041): Inferred latch for "sal[4]" at mux_4_to_1.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Info (10041): Inferred latch for "sal[5]" at mux_4_to_1.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Info (10041): Inferred latch for "sal[6]" at mux_4_to_1.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Info (10041): Inferred latch for "sal[7]" at mux_4_to_1.vhd(17) File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Info (12128): Elaborating entity "decodificador_matriz4" for hierarchy "decodificador_matriz4:inst31"
+Info (12128): Elaborating entity "decodificador_matriz3" for hierarchy "decodificador_matriz3:inst30"
+Info (12128): Elaborating entity "decodificador_matriz2" for hierarchy "decodificador_matriz2:inst28"
+Info (12128): Elaborating entity "decodificador_matriz1" for hierarchy "decodificador_matriz1:inst26"
+Info (12128): Elaborating entity "Deco7seg" for hierarchy "Deco7seg:inst22"
+Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:inst1"
+Warning (14026): LATCH primitive "mux_4_to_1:inst23|sal[1]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst23|sal[2]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst23|sal[3]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst23|sal[4]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst23|sal[5]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst23|sal[6]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst23|sal[7]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst23|sal[0]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1_2:inst39|sal[1]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1_2:inst39|sal[2]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1_2:inst39|sal[3]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1_2:inst39|sal[0]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst32|sal[1]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst32|sal[2]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst32|sal[3]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst32|sal[4]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst32|sal[5]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst32|sal[6]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst32|sal[7]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1:inst32|sal[0]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1_2:inst40|sal[1]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1_2:inst40|sal[2]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1_2:inst40|sal[3]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Warning (14026): LATCH primitive "mux_4_to_1_2:inst40|sal[0]" is permanently enabled File: C:/Users/Abel Silva/Desktop/LUDO/mux_4_to_1_2.vhd Line: 17
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "state[5]" is stuck at GND
+    Warning (13410): Pin "state[4]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 256 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 42 output pins
+    Info (21061): Implemented 209 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 84 warnings
+    Info: Peak virtual memory: 4825 megabytes
+    Info: Processing ended: Thu Aug 15 14:46:34 2019
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:25
+
+

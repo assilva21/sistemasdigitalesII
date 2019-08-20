@@ -1,0 +1,185 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity controlador_ludo is
+Port(
+	clock: in std_logic;
+	R, S, turno, dado1, dado2, meta : in std_logic;
+		aleatorio_jugador, aumentar_verde, aumentar_rojo,registro_dado1, 
+		registro_dado2, enable, led_indicador,led_verde, led_rojo: out std_logic;
+		state: out std_logic_vector(5 downto 0));
+	end controlador_ludo;
+Architecture sol of controlador_ludo is
+	type estado is (T1, T2, T3, T4, T5, T6, T7, T9, T10, 
+	 T11,  T12, T13, T14, T15,  T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, 
+	 T25, T26, T27, T28, T29, T30);
+	signal y:estado;
+
+begin
+--transiciones
+	Process(R, clock)
+	begin
+	if R = '1' then y <= T1;
+	elsif clock'event and clock = '1' then
+		case y is
+		when T1 => if S = '1' then y<=T2; else y<=T1; end if;
+		when T2 => if S = '0' then y<=T3; else y<=T2; end if;
+		when T3 => y<=T4;
+		when T4 => if turno = '1' then y<=T5;
+						else y<=T6; end if;
+		when T6 => if dado2 = '1' then y<=T8; else y<=T6; end if;
+		when T8 => if dado2 = '0' then y<=T9; else y<=T8; end if;
+		when T5 => if dado1 = '1' then y<=T7; else y<=T5; end if;
+		when T7 => if dado1 = '0' then y<=T10; else y<=T7; end if;
+		
+		when T26 => y<=T27;
+		when T27 => y<=T27a;
+		when T27a => if t3seg = '1' then y<=T27b;else y<=T27a; end if;
+		when T27b => y<=T27c;	
+		when T27c => if t10seg = '1' then y<=T27d;else y<=T27; end if;	
+		when T27d => y<=T3;
+		when T4 => if J = '0' then y<=T5; else y<=T4; end if;
+		when T5 => y<=T6; 
+		when T6 => 	if perder = '1' then y<=T25; 
+						elsif izq = '1' then y<=T9;
+						elsif comio = '1' then y<=T17; 
+						elsif dere = '1' then y<=T16;
+						else y<=T7; end if;				
+		when T7 => if perder = '1' then y<=T25;
+					  elsif comio = '1' then y<=T17; 
+						else y<=T6; end if;
+		
+		when T9 => if perder = '1' then y<=T25;
+					  elsif comio = '1' then y<=T20; 
+					  else y<=T10; end if;
+		when T10 => if perder = '1' then y<=T25; 
+						elsif up = '1' then y<=T12;
+						
+						elsif down = '1' then y<=T14;
+						else y<=T9; end if;
+		when T20 => y<=T9; 				
+
+		when T12 => if comio = '1' then y<=T24; else y<=T6; end if;
+		when T24 => y<=T12; 	
+		when T14 => if perder = '1' then y<=T25;
+						elsif comio = '1' then y<=T21; 
+						else y<=T19; end if;
+		when T19 => if perder = '1' then y<=T25; 
+						elsif izq = '1' then y<=T9;
+						
+						elsif dere = '1' then y<=T16;
+						else y<=T14; end if;
+		when T21 => y<=T14; 
+		when T17 => y<=T7; 
+		when T16 => if perder = '1' then y<=T25;
+						elsif comio = '1' then y<=T23; 
+						else y<=T22; end if;
+		when T22 => if perder = '1' then y<=T25; 
+						elsif up = '1' then y<=T12;
+						
+						elsif down = '1' then y<=T14;
+						else y<=T16; end if;
+		when T23 => y<=T16;
+		when T25 => y<=T25a; 		
+		when T25a => y<=T3;
+						
+		end case;
+	end if;
+end process;
+--Salidas
+	process(R, clock)
+	begin 
+	reset <= '0'; enable1<= '0'; en_comida <= '0'; led1 <= '0';enable<= '0';
+	registroA<='0'; registroA1<='0'; registroC<='0'; registroC1<='0';registroB<='0'; 
+	registroD<='0';
+	habilcnt_colum<='0'; descendente_colum<='0';habilcnt_fila<= '0';descendente_fila<= '0';
+	punivel<='0'; 
+	resetcontador<='0';ram_enable<='0'; w_rite<='0';conta3seg<='0';contador3segundos<='0';
+	resetcontador3segundos<='0';H<='0';
+	case y is
+		when T1 => state <= "000001";
+		when T2 => state <= "000010";
+		when T3 => state <= "000011";	led1<= '1';
+		when T4 => state <= "000100"; reset<='1';	
+		when T5 => state <= "000101"; enable<= '1';enable1<= '1'; en_comida<='1';
+		when T6 => state <= "000110"; enable<= '1';enable1<= '1'; registroA<='1'; 
+		registroA1<='1';registroA2<='1';registroA3<='1';registroA4<='1';registroA5<='1';
+		registroA6<='1';registroA7<='1'; registroC<='1'; registroC1<='1';registroC2<='1';
+		registroC3<='1';registroC4<='1';registroC5<='1';registroC6<='1';registroC7<='1';
+		when T7 => state <= "000111"; enable<= '1';enable1<= '1';habilcnt_fila<= '1';
+		descendente_fila<= '1'; registroB<='1';registroB1<='1';registroB2<='1';
+		registroB3<='1';registroB4<='1';registroB5<='1';registroB6<='1';registroB7<='1'; 
+		registroD<='1';registroD1<='1';registroD2<='1';registroD3<='1';registroD4<='1';
+		registroD5<='1';registroD6<='1';registroD7<='1';
+		when T9 => state <= "001001";enable<= '1';enable1<= '1'; registroB<='1';
+		registroB1<='1';registroB2<='1';registroB3<='1';registroB4<='1';registroB5<='1';
+		registroB6<='1';registroB7<='1'; registroD<='1';registroD1<='1';registroD2<='1';
+		registroD3<='1';registroD4<='1';registroD5<='1';registroD6<='1';registroD7<='1'; 
+		habilcnt_colum<='1'; descendente_colum<='1';
+		when T10 => state <= "001010";enable<= '1';enable1<= '1'; registroA<='1'; 
+		registroA1<='1';registroA2<='1';registroA3<='1';registroA4<='1';registroA5<='1';
+		registroA6<='1';registroA7<='1'; registroC<='1'; registroC1<='1';registroC2<='1';
+		registroC3<='1';registroC4<='1';registroC5<='1';registroC6<='1';registroC7<='1';
+
+		when T12 => state <= "001100";enable<= '1';enable1<= '1';habilcnt_fila<= '1';
+		descendente_fila<= '1'; registroB<='1';registroB1<='1';registroB2<='1';
+		registroB3<='1';registroB4<='1';registroB5<='1';registroB6<='1';registroB7<='1'; 
+		registroD<='1';registroD1<='1';registroD2<='1';registroD3<='1';registroD4<='1';
+		registroD5<='1';registroD6<='1';registroD7<='1';
+
+		when T14 => state <= "001110";enable<= '1';enable1<= '1'; habilcnt_fila<='1'; 
+		registroB<='1';registroB1<='1';registroB2<='1';registroB3<='1';registroB4<='1';
+		registroB5<='1';registroB6<='1';registroB7<='1'; registroD<='1';registroD1<='1';
+		registroD2<='1';registroD3<='1';registroD4<='1';registroD5<='1';registroD6<='1';
+		registroD7<='1';
+
+		when T16 => state <= "010000";enable<= '1';enable1<= '1'; registroB<='1';
+		registroB1<='1';registroB2<='1';registroB3<='1';registroB4<='1';registroB5<='1';
+		registroB6<='1';registroB7<='1'; registroD<='1';registroD1<='1';registroD2<='1';
+		registroD3<='1';registroD4<='1';registroD5<='1';registroD6<='1';registroD7<='1';
+		habilcnt_colum<='1';registroD1<='1';
+		when T17 => state <= "010001";enable<= '1';enable1<= '1';en_comida<='1';
+		punivel<='1'; registroA<='1'; registroA1<='1';registroA2<='1';registroA3<='1';
+		registroA4<='1';registroA5<='1';registroA6<='1';registroA7<='1'; registroC<='1'; 
+		registroC1<='1';registroC2<='1';registroC3<='1';registroC4<='1';registroC5<='1';
+		registroC6<='1';registroC7<='1';
+		when T18 => state <= "010010";H<='1';enable1<= '1';
+		when T19 => state <= "010011";enable<= '1';enable1<= '1'; registroA<='1';
+		registroA1<='1';registroA2<='1';registroA3<='1';registroA4<='1';registroA5<='1';
+		registroA6<='1';registroA7<='1'; registroC<='1'; registroC1<='1';registroC2<='1';
+		registroC3<='1';registroC4<='1';registroC5<='1';registroC6<='1';registroC7<='1';
+		when T20 => state <= "010100";enable<= '1';enable1<= '1';en_comida<='1';
+		punivel<='1'; registroA<='1'; registroA1<='1';registroA2<='1';registroA3<='1';
+		registroA4<='1';registroA5<='1';registroA6<='1';registroA7<='1'; registroC<='1'; 
+		registroC1<='1';registroC2<='1';registroC3<='1';registroC4<='1';registroC5<='1';
+		registroC6<='1';registroC7<='1';
+		when T21 => state <= "010101";enable<= '1';enable1<= '1';en_comida<='1';
+		punivel<='1'; registroA<='1'; registroA<='1'; registroA1<='1';registroA2<='1';
+		registroA3<='1';registroA4<='1';registroA5<='1';registroA6<='1';registroA7<='1'; 
+		registroC<='1'; registroC1<='1';registroC2<='1';registroC3<='1';registroC4<='1';
+		registroC5<='1';registroC6<='1';registroC7<='1';
+		when T22 => state <= "010011";enable<= '1';enable1<= '1'; registroA<='1'; 
+		registroA1<='1';registroA2<='1';registroA3<='1';registroA4<='1';registroA5<='1';
+		registroA6<='1';registroA7<='1'; registroC<='1'; registroC1<='1';registroC2<='1';
+		registroC3<='1';registroC4<='1';registroC5<='1';registroC6<='1';registroC7<='1';
+		when T23 => state <= "010001";enable<= '1';enable1<= '1';en_comida<='1';
+		punivel<='1';   registroA<='1'; registroA1<='1';registroA2<='1';registroA3<='1';
+		registroA4<='1';registroA5<='1';registroA6<='1';registroA7<='1'; registroC<='1'; 
+		registroC1<='1';registroC2<='1';registroC3<='1';registroC4<='1';registroC5<='1';
+		registroC6<='1';registroC7<='1';
+	   when T24 => state <= "011000";enable<= '1';enable1<= '1';en_comida<='1';
+		punivel<='1'; registroA<='1'; registroA1<='1';registroA2<='1';registroA3<='1';
+		registroA4<='1';registroA5<='1';registroA6<='1';registroA7<='1'; registroC<='1';
+		registroC1<='1';registroC2<='1';registroC3<='1';registroC4<='1';registroC5<='1';
+		registroC6<='1';registroC7<='1';
+		when T25 => state <= "011000";ram_enable<='1'; w_rite<='1';enable1<= '1';
+		when T25a => state <= "011000";conta3seg<='1';enable1<= '1';
+		when T26 => state <= "011000";resetcontador<='1';H<='1';enable1<= '1';
+		when T27 => state <= "011000";ram_enable<='1';conta3seg<='1';H<='1';enable1<= '1';
+		when T27a => state <= "011000";contador3segundos<='1';H<='1';enable1<= '1';
+		when T27b => state <= "011000";resetcontador3segundos<='1';H<='1';enable1<= '1';
+		when T27c => state <= "011000";H<='1';enable1<= '1';
+		when T27d => state <= "011000";resetcontador<='1';H<='1';enable1<= '1';
+
+		end case;
+end process;
+end sol;

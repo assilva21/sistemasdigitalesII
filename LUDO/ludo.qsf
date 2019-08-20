@@ -1,0 +1,152 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2017  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Intel and sold by Intel or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 17.0.0 Build 595 04/25/2017 SJ Standard Edition
+# Date created = 00:37:53  July 26, 2019
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		ludo_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE22F17C6
+set_global_assignment -name TOP_LEVEL_ENTITY block1
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.0.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "00:37:53  JULY 26, 2019"
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_location_assignment PIN_R8 -to clock50
+set_location_assignment PIN_D11 -to start
+set_location_assignment PIN_B11 -to jugador1
+set_location_assignment PIN_B12 -to jugador2
+set_location_assignment PIN_F9 -to seg[6]
+set_location_assignment PIN_E8 -to seg[4]
+set_location_assignment PIN_F8 -to seg[5]
+set_location_assignment PIN_D8 -to seg[3]
+set_location_assignment PIN_E7 -to seg[2]
+set_location_assignment PIN_E6 -to seg[1]
+set_location_assignment PIN_C8 -to seg[0]
+set_location_assignment PIN_E9 -to dis[1]
+set_location_assignment PIN_C9 -to dis[0]
+set_location_assignment PIN_A12 -to resetn
+set_location_assignment PIN_D9 -to led_rojo
+set_location_assignment PIN_E11 -to led_verde
+set_location_assignment PIN_D12 -to led_indicador
+set_global_assignment -name VHDL_FILE mux_4_to_1.vhd
+set_global_assignment -name VHDL_FILE decodificador_de_3a8_colum.vhd
+set_global_assignment -name VHDL_FILE mux_2_to_1.vhd
+set_global_assignment -name VHDL_FILE Deco7seg.vhd
+set_global_assignment -name SOURCE_FILE sumador2.cmp
+set_global_assignment -name SOURCE_FILE comparador31.cmp
+set_global_assignment -name VHDL_FILE CLOCK_DIV_50.vhd
+set_global_assignment -name VHDL_FILE ANTIREBOTE.vhd
+set_global_assignment -name SOURCE_FILE sumador.cmp
+set_global_assignment -name SOURCE_FILE contador0a1.cmp
+set_global_assignment -name VHDL_FILE Registro_0.vhd
+set_global_assignment -name VHDL_FILE Registro.vhd
+set_global_assignment -name VHDL_FILE dado.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
+set_global_assignment -name BDF_FILE block1.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform4.vwf
+set_global_assignment -name QIP_FILE contador0a1.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform5.vwf
+set_global_assignment -name QIP_FILE sumador.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform6.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform7.vwf
+set_global_assignment -name VHDL_FILE comparador_igual_31.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform8.vwf
+set_global_assignment -name QIP_FILE sumador2.qip
+set_global_assignment -name QIP_FILE comparador31.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform9.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform10.vwf
+set_global_assignment -name VHDL_FILE decodificador_1a2.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform11.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform12.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform13.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
+set_global_assignment -name VHDL_FILE controlador_ludo.vhd
+set_global_assignment -name VHDL_FILE decodificador_matriz1.vhd
+set_global_assignment -name VHDL_FILE decodificador_columna_verde.vhd
+set_global_assignment -name VHDL_FILE decodificador_matriz2.vhd
+set_global_assignment -name VHDL_FILE decodificador_matriz3.vhd
+set_global_assignment -name VHDL_FILE decodificador_matriz4.vhd
+set_global_assignment -name QIP_FILE counter.qip
+set_location_assignment PIN_B5 -to verdefila[7]
+set_location_assignment PIN_A4 -to verdefila[6]
+set_location_assignment PIN_B4 -to verdefila[5]
+set_location_assignment PIN_B3 -to verdefila[4]
+set_location_assignment PIN_A3 -to verdefila[3]
+set_location_assignment PIN_A2 -to verdefila[2]
+set_location_assignment PIN_C3 -to verdefila[1]
+set_location_assignment PIN_D3 -to verdefila[0]
+set_location_assignment PIN_B7 -to verdecolumna[3]
+set_location_assignment PIN_D6 -to verdecolumna[2]
+set_location_assignment PIN_A7 -to verdecolumna[1]
+set_location_assignment PIN_C6 -to verdecolumna[0]
+set_location_assignment PIN_A6 -to rojocolumna[3]
+set_location_assignment PIN_B6 -to rojocolumna[2]
+set_location_assignment PIN_D5 -to rojocolumna[1]
+set_location_assignment PIN_A5 -to rojocolumna[0]
+set_location_assignment PIN_F13 -to rojofila[7]
+set_location_assignment PIN_T15 -to rojofila[6]
+set_location_assignment PIN_T14 -to rojofila[5]
+set_location_assignment PIN_T13 -to rojofila[4]
+set_location_assignment PIN_R13 -to rojofila[3]
+set_location_assignment PIN_T12 -to rojofila[2]
+set_location_assignment PIN_R12 -to rojofila[1]
+set_location_assignment PIN_T11 -to rojofila[0]
+set_global_assignment -name BDF_FILE block2.bdf
+set_global_assignment -name VHDL_FILE decodificador_columna_1.vhd
+set_global_assignment -name VHDL_FILE decodificador_columna_2.vhd
+set_global_assignment -name VHDL_FILE decodificador_columna_3.vhd
+set_global_assignment -name VHDL_FILE decodificador_columna_4.vhd
+set_global_assignment -name VHDL_FILE mux_4_to_1_2.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform14.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform15.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform16.vwf
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform17.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform18.vwf

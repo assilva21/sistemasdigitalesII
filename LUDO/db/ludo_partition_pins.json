@@ -1,0 +1,189 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "led_indicador",
+					"strict" : false
+				},
+				{
+					"name" : "led_verde",
+					"strict" : false
+				},
+				{
+					"name" : "led_rojo",
+					"strict" : false
+				},
+				{
+					"name" : "dis[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dis[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rojocolumna[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rojocolumna[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rojocolumna[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rojocolumna[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rojofila[7]",
+					"strict" : false
+				},
+				{
+					"name" : "rojofila[6]",
+					"strict" : false
+				},
+				{
+					"name" : "rojofila[5]",
+					"strict" : false
+				},
+				{
+					"name" : "rojofila[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rojofila[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rojofila[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rojofila[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rojofila[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "state[3]",
+					"strict" : false
+				},
+				{
+					"name" : "state[2]",
+					"strict" : false
+				},
+				{
+					"name" : "state[1]",
+					"strict" : false
+				},
+				{
+					"name" : "state[0]",
+					"strict" : false
+				},
+				{
+					"name" : "verdecolumna[3]",
+					"strict" : false
+				},
+				{
+					"name" : "verdecolumna[2]",
+					"strict" : false
+				},
+				{
+					"name" : "verdecolumna[1]",
+					"strict" : false
+				},
+				{
+					"name" : "verdecolumna[0]",
+					"strict" : false
+				},
+				{
+					"name" : "verdefila[7]",
+					"strict" : false
+				},
+				{
+					"name" : "verdefila[6]",
+					"strict" : false
+				},
+				{
+					"name" : "verdefila[5]",
+					"strict" : false
+				},
+				{
+					"name" : "verdefila[4]",
+					"strict" : false
+				},
+				{
+					"name" : "verdefila[3]",
+					"strict" : false
+				},
+				{
+					"name" : "verdefila[2]",
+					"strict" : false
+				},
+				{
+					"name" : "verdefila[1]",
+					"strict" : false
+				},
+				{
+					"name" : "verdefila[0]",
+					"strict" : false
+				},
+				{
+					"name" : "resetn",
+					"strict" : false
+				},
+				{
+					"name" : "clock50",
+					"strict" : false
+				},
+				{
+					"name" : "start",
+					"strict" : false
+				},
+				{
+					"name" : "jugador1",
+					"strict" : false
+				},
+				{
+					"name" : "jugador2",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

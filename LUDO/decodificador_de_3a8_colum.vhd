@@ -1,0 +1,24 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY decodificador_de_3a8_colum IS
+	PORT(	w	:IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+			En	:IN STD_LOGIC;
+			y	:OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+END decodificador_de_3a8_colum;
+
+ARCHITECTURE Behavior of decodificador_de_3a8_colum IS
+	SIGNAL Enw: STD_LOGIC_VECTOR(3 DOWNTO 0);
+BEGIN
+	Enw <=En&w;
+	WITH Enw SELECT
+		y<="01111111" WHEN "1000",
+			"10111111" WHEN "1001",
+			"11011111" WHEN "1010",
+			"11101111" WHEN "1011",
+			"11110111" WHEN "1100",
+			"11111011" WHEN "1101",
+			"11111101" WHEN "1110",
+			"11111110" WHEN "1111",
+			"00000000" WHEN OTHERS;
+END Behavior;
